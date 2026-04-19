@@ -1,0 +1,15 @@
+2026-04-10 16:27:26 [ERROR] error: password authentication failed for user "potato_user"
+    at C:\Users\sama\.gemini\antigravity\scratch\potato-spoilage-system\backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async initPostgres (file:///C:/Users/sama/.gemini/antigravity/scratch/potato-spoilage-system/backend/src/config/db.js:126:18)
+    at async start (file:///C:/Users/sama/.gemini/antigravity/scratch/potato-spoilage-system/backend/server.js:19:5)
+2026-04-10 16:29:30 [ERROR] error: password authentication failed for user "potato_user"
+    at C:\Users\sama\.gemini\antigravity\scratch\potato-spoilage-system\backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async initPostgres (file:///C:/Users/sama/.gemini/antigravity/scratch/potato-spoilage-system/backend/src/config/db.js:126:18)
+    at async start (file:///C:/Users/sama/.gemini/antigravity/scratch/potato-spoilage-system/backend/server.js:19:5)
+2026-04-10 16:39:36 [ERROR] error: password authentication failed for user "potato"
+    at C:\Users\sama\.gemini\antigravity\scratch\potato-spoilage-system\backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async initPostgres (file:///C:/Users/sama/.gemini/antigravity/scratch/potato-spoilage-system/backend/src/config/db.js:126:18)
+    at async start (file:///C:/Users/sama/.gemini/antigravity/scratch/potato-spoilage-system/backend/server.js:19:5)

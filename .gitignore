@@ -1,0 +1,16 @@
+# Node.js dependencies (The biggest folder)
+node_modules/
+dist/
+build/
+npm-debug.log
+
+# Docker Database Storage (Very large)
+influxdb_data/
+postgres_data/
+
+# Environment Variables (Security)
+.env
+
+# System Files
+.DS_Store
+Thumbs.db
