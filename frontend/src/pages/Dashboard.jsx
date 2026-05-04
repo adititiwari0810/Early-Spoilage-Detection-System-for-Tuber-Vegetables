@@ -54,14 +54,18 @@ const Dashboard = ({ nodeData, latestReading, getNodeIds, onAlert }) => {
                 <div className="stat-sub">{currentReading.enriched.risk_level} Risk</div>
               </div>
               <div className="stat-card">
-                <div className="stat-label">Ethylene</div>
-                <div className="stat-value">{currentReading.ethylene_ppm} ppm</div>
-                <div className="stat-sub">EMA: {currentReading.enriched.eth_ema}</div>
+                <div className="stat-label">Air Quality (MQ-135)</div>
+                <div className={`stat-value ${currentReading.air_alert ? 'anomaly-active' : 'anomaly-inactive'}`}>
+                  {currentReading.air_alert ? '⚠ ALERT' : '✓ Normal'}
+                </div>
+                <div className="stat-sub">Digital sensor output</div>
               </div>
               <div className="stat-card">
-                <div className="stat-label">Gas Raw</div>
-                <div className="stat-value">{currentReading.gas_raw}</div>
-                <div className="stat-sub">Readings: {currentReading.enriched.reading_count}</div>
+                <div className="stat-label">Ethanol (MQ-3)</div>
+                <div className={`stat-value ${currentReading.ethanol_alert ? 'anomaly-active' : 'anomaly-inactive'}`}>
+                  {currentReading.ethanol_alert ? '⚠ ALERT' : '✓ Normal'}
+                </div>
+                <div className="stat-sub">Digital sensor output</div>
               </div>
               <div className="stat-card">
                 <div className="stat-label">Anomaly</div>
@@ -71,6 +75,31 @@ const Dashboard = ({ nodeData, latestReading, getNodeIds, onAlert }) => {
                 <div className="stat-sub">
                   {currentReading.enriched.window_full ? 'Detection active' : `Warming up (${currentReading.enriched.reading_count}/50)`}
                 </div>
+              </div>
+            </div>
+          )}
+
+          {/* Ambient estimates row */}
+          {currentReading && (currentReading.ambient_temp_est != null || currentReading.ambient_hum_est != null) && (
+            <div className="stats-grid stats-grid-secondary" id="ambient-stats">
+              <div className="stat-card stat-card-compact">
+                <div className="stat-label">Ambient Temp (est)</div>
+                <div className="stat-value">
+                  {currentReading.ambient_temp_est != null ? `${currentReading.ambient_temp_est.toFixed(1)}°C` : '--'}
+                </div>
+                <div className="stat-sub">DHT11 − 0.4°C offset</div>
+              </div>
+              <div className="stat-card stat-card-compact">
+                <div className="stat-label">Ambient Humidity (est)</div>
+                <div className="stat-value">
+                  {currentReading.ambient_hum_est != null ? `${currentReading.ambient_hum_est.toFixed(1)}%` : '--'}
+                </div>
+                <div className="stat-sub">DHT11 + 3% offset</div>
+              </div>
+              <div className="stat-card stat-card-compact">
+                <div className="stat-label">Readings</div>
+                <div className="stat-value">{currentReading.enriched?.reading_count || 0}</div>
+                <div className="stat-sub">Total data points</div>
               </div>
             </div>
           )}
@@ -85,7 +114,7 @@ const Dashboard = ({ nodeData, latestReading, getNodeIds, onAlert }) => {
         <div className="empty-state" id="empty-state">
           <div className="empty-state-icon">🥔</div>
           <h3>Waiting for Sensor Data</h3>
-          <p>Start the simulator or connect ESP32 nodes to see real-time data.</p>
+          <p>Start the simulator or connect ESP8266 nodes to see real-time data.</p>
           <code>cd backend && npm run simulate</code>
         </div>
       )}

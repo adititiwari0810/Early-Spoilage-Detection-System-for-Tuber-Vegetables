@@ -81,6 +81,8 @@ const linearSlope = (values) => {
 
 /**
  * Get or create the analysis window for a given node.
+ * Tracks: temperature, humidity, co2_ppm (continuous metrics).
+ * Also tracks latest air_alert and ethanol_alert (binary states).
  */
 const getNodeWindow = (nodeId) => {
   if (!nodeWindows.has(nodeId)) {
@@ -88,12 +90,11 @@ const getNodeWindow = (nodeId) => {
       temperature: [],
       humidity: [],
       co2_ppm: [],
-      ethylene_ppm: [],
-      gas_raw: [],
       ema_temperature: null,
       ema_humidity: null,
       ema_co2: null,
-      ema_ethylene: null,
+      last_air_alert: 0,
+      last_ethanol_alert: 0,
       readingCount: 0,
     });
   }
@@ -112,18 +113,21 @@ const pushToWindow = (arr, value, maxSize = WINDOW_SIZE) => {
 
 /**
  * Compute spoilage score using weighted normalization.
- * score =
- *   0.35 * norm(co2_ppm, 400, 5000) +
- *   0.25 * norm(humidity, 0, 100) +
- *   0.20 * norm(temperature, -10, 60) +
- *   0.20 * norm(ethylene_ppm, 0, 50)
+ *
+ * New formula (aligned with ESP8266 hardware sensors):
+ *   0.40 * norm(co2_ppm, 400, 5000)    — MG811 CO₂ (most reliable continuous metric)
+ *   0.25 * norm(humidity, 0, 100)       — DHT11 humidity
+ *   0.20 * norm(temperature, -10, 60)   — DHT11 temperature
+ *   0.10 * ethanol_alert               — MQ-3 digital (0 or 1)
+ *   0.05 * air_alert                   — MQ-135 digital (0 or 1)
  */
 const computeSpoilageScore = (data) => {
   const score =
-    0.35 * norm(data.co2_ppm, 400, 5000) +
+    0.40 * norm(data.co2_ppm, 400, 5000) +
     0.25 * norm(data.humidity, 0, 100) +
     0.20 * norm(data.temperature, -10, 60) +
-    0.20 * norm(data.ethylene_ppm, 0, 50);
+    0.10 * (data.ethanol_alert || 0) +
+    0.05 * (data.air_alert || 0);
 
   return Math.round(score * 1000) / 1000; // 3 decimal places
 };
@@ -145,18 +149,19 @@ const enrichReading = (data) => {
   const window = getNodeWindow(data.node_id);
   window.readingCount++;
 
-  // Push to rolling windows
+  // Push to rolling windows (continuous metrics only)
   pushToWindow(window.temperature, data.temperature);
   pushToWindow(window.humidity, data.humidity);
   pushToWindow(window.co2_ppm, data.co2_ppm);
-  pushToWindow(window.ethylene_ppm, data.ethylene_ppm);
-  pushToWindow(window.gas_raw, data.gas_raw);
+
+  // Track latest binary alert states
+  window.last_air_alert = data.air_alert || 0;
+  window.last_ethanol_alert = data.ethanol_alert || 0;
 
   // Compute EMAs
   window.ema_temperature = ema(data.temperature, window.ema_temperature);
   window.ema_humidity = ema(data.humidity, window.ema_humidity);
   window.ema_co2 = ema(data.co2_ppm, window.ema_co2);
-  window.ema_ethylene = ema(data.ethylene_ppm, window.ema_ethylene);
 
   // Compute spoilage score
   const spoilageScore = computeSpoilageScore(data);
@@ -166,7 +171,6 @@ const enrichReading = (data) => {
   const tempSlope = linearSlope(window.temperature.slice(-SLOPE_WINDOW));
   const humSlope = linearSlope(window.humidity.slice(-SLOPE_WINDOW));
   const co2Slope = linearSlope(window.co2_ppm.slice(-SLOPE_WINDOW));
-  const ethSlope = linearSlope(window.ethylene_ppm.slice(-SLOPE_WINDOW));
 
   // Z-scores and anomaly detection (only after WINDOW_SIZE readings)
   const hasEnoughData = window.readingCount >= WINDOW_SIZE;
@@ -174,13 +178,11 @@ const enrichReading = (data) => {
   const tempZscore = hasEnoughData ? zScore(data.temperature, window.temperature) : 0;
   const humZscore = hasEnoughData ? zScore(data.humidity, window.humidity) : 0;
   const co2Zscore = hasEnoughData ? zScore(data.co2_ppm, window.co2_ppm) : 0;
-  const ethZscore = hasEnoughData ? zScore(data.ethylene_ppm, window.ethylene_ppm) : 0;
 
   const anomalyFlag = hasEnoughData && (
     Math.abs(tempZscore) > ZSCORE_THRESHOLD ||
     Math.abs(humZscore) > ZSCORE_THRESHOLD ||
-    Math.abs(co2Zscore) > ZSCORE_THRESHOLD ||
-    Math.abs(ethZscore) > ZSCORE_THRESHOLD
+    Math.abs(co2Zscore) > ZSCORE_THRESHOLD
   );
 
   const enriched = {
@@ -205,11 +207,6 @@ const enrichReading = (data) => {
       co2_zscore: Math.round(co2Zscore * 100) / 100,
       co2_ema: Math.round(window.ema_co2 * 100) / 100,
       co2_slope: Math.round(co2Slope * 1000) / 1000,
-      eth_mean: Math.round(mean(window.ethylene_ppm) * 100) / 100,
-      eth_std: Math.round(std(window.ethylene_ppm) * 100) / 100,
-      eth_zscore: Math.round(ethZscore * 100) / 100,
-      eth_ema: Math.round(window.ema_ethylene * 100) / 100,
-      eth_slope: Math.round(ethSlope * 1000) / 1000,
       anomaly_flag: anomalyFlag,
       reading_count: window.readingCount,
       window_full: hasEnoughData,
@@ -233,13 +230,13 @@ const getCurrentScore = (nodeId) => {
   const lastTemp = window.temperature[window.temperature.length - 1];
   const lastHum = window.humidity[window.humidity.length - 1];
   const lastCo2 = window.co2_ppm[window.co2_ppm.length - 1];
-  const lastEth = window.ethylene_ppm[window.ethylene_ppm.length - 1];
 
   const score = computeSpoilageScore({
     temperature: lastTemp,
     humidity: lastHum,
     co2_ppm: lastCo2,
-    ethylene_ppm: lastEth,
+    ethanol_alert: window.last_ethanol_alert,
+    air_alert: window.last_air_alert,
   });
 
   return { score, risk: classifyRisk(score) };

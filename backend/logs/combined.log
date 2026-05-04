@@ -41371,3 +41371,1049 @@
 2026-04-12 20:45:01 [INFO] Batch score for potato_node_03: 0.776 (High)
 2026-04-12 20:45:01 [WARN] Node potato_node_03 marked offline (no data for >5min)
 2026-04-12 20:45:01 [INFO] Batch job complete. Processed 3 nodes.
+2026-04-19 18:36:39 [INFO] Initializing PostgreSQL...
+2026-04-19 18:36:39 [INFO] PostgreSQL tables initialized
+2026-04-19 18:36:39 [INFO] Socket.IO initialized
+2026-04-19 18:36:39 [INFO] Connecting to MQTT broker...
+2026-04-19 18:36:39 [INFO] MQTT connected to mqtt://localhost:1883
+2026-04-19 18:36:39 [INFO] MQTT subscribed to potato/node/+/data
+2026-04-19 18:36:39 [INFO] Batch job scheduled with cron: */15 * * * *
+2026-04-19 18:36:39 [INFO] 🥔 Potato Spoilage Detection System running on port 4000
+2026-04-19 18:36:39 [INFO]    REST API: http://localhost:4000/api
+2026-04-19 18:36:39 [INFO]    Socket.IO: ws://localhost:4000
+2026-04-19 18:36:39 [INFO]    Health: http://localhost:4000/api/health
+2026-04-19 18:39:54 [DEBUG] GET /api/alerts
+2026-04-19 18:39:54 [INFO] Socket.IO client connected: hu0CG0usgTP8O-BeAAAC
+2026-04-19 18:39:54 [DEBUG] GET /api/alerts
+2026-04-19 18:39:58 [DEBUG] GET /api/nodes
+2026-04-19 18:39:58 [DEBUG] GET /api/nodes
+2026-04-19 18:39:58 [DEBUG] GET /api/sensors/23bec002
+2026-04-19 18:40:00 [DEBUG] GET /api/sensors/potato_node_03
+2026-04-19 18:40:05 [DEBUG] GET /api/nodes
+2026-04-19 18:40:05 [DEBUG] GET /api/nodes
+2026-04-19 18:40:09 [DEBUG] GET /api/nodes
+2026-04-19 18:40:09 [DEBUG] GET /api/nodes
+2026-04-19 18:40:09 [DEBUG] GET /api/sensors/23bec002
+2026-04-19 18:40:11 [DEBUG] GET /api/sensors/23bec002
+2026-04-19 18:40:12 [DEBUG] GET /api/sensors/23bec002
+2026-04-19 18:40:14 [DEBUG] GET /api/sensors/23bec002
+2026-04-19 18:40:15 [DEBUG] GET /api/sensors/23bec002
+2026-04-19 18:40:16 [DEBUG] GET /api/sensors/23bec002
+2026-04-19 18:40:17 [DEBUG] GET /api/sensors/23bec002
+2026-04-19 18:40:18 [DEBUG] GET /api/sensors/23bec002
+2026-04-19 18:45:00 [INFO] Running batch spoilage score job...
+2026-04-19 18:45:00 [INFO] Batch job complete. Processed 0 nodes.
+2026-04-19 18:45:45 [INFO] Socket.IO client disconnected: hu0CG0usgTP8O-BeAAAC (transport close)
+2026-04-19 18:45:45 [DEBUG] GET /api/nodes
+2026-04-19 18:45:45 [INFO] Socket.IO client connected: ogg7RMpcUm5pHDWaAAAF
+2026-04-19 18:45:45 [DEBUG] GET /api/nodes
+2026-04-19 18:45:45 [DEBUG] GET /api/sensors/23bec002
+2026-04-19 18:45:47 [DEBUG] GET /api/nodes
+2026-04-19 18:45:47 [DEBUG] GET /api/nodes
+2026-04-19 18:45:48 [DEBUG] GET /api/nodes
+2026-04-19 18:45:48 [DEBUG] GET /api/nodes
+2026-04-19 18:45:48 [DEBUG] GET /api/sensors/23bec002
+2026-04-19 18:45:49 [DEBUG] GET /api/alerts
+2026-04-19 18:45:49 [DEBUG] GET /api/alerts
+2026-04-19 18:45:51 [INFO] Socket.IO client disconnected: ogg7RMpcUm5pHDWaAAAF (transport close)
+2026-04-19 18:45:52 [DEBUG] GET /api/alerts
+2026-04-19 18:45:52 [INFO] Socket.IO client connected: Qt_QS8BrPPrNv-aJAAAI
+2026-04-19 18:45:52 [DEBUG] GET /api/alerts
+2026-04-19 18:46:10 [INFO] Initializing PostgreSQL...
+2026-04-19 18:46:10 [INFO] PostgreSQL tables initialized
+2026-04-19 18:46:10 [INFO] Socket.IO initialized
+2026-04-19 18:46:10 [INFO] Connecting to MQTT broker...
+2026-04-19 18:46:15 [WARN] MQTT initial connection timeout, will retry in background
+2026-04-19 18:47:14 [DEBUG] GET /api/alerts
+2026-04-19 18:47:14 [INFO] Socket.IO client connected: xIquXTL8qO-mcTShAAAL
+2026-04-19 18:47:14 [DEBUG] GET /api/alerts
+2026-04-19 18:47:19 [DEBUG] GET /api/nodes
+2026-04-19 18:47:19 [DEBUG] GET /api/nodes
+2026-04-19 18:47:19 [DEBUG] GET /api/sensors/23bec002
+2026-04-19 18:47:21 [DEBUG] GET /api/nodes
+2026-04-19 18:47:21 [DEBUG] GET /api/nodes
+2026-04-19 18:47:25 [DEBUG] GET /api/nodes
+2026-04-19 18:47:25 [DEBUG] GET /api/nodes
+2026-04-19 18:47:25 [DEBUG] GET /api/sensors/23bec002
+2026-04-19 18:48:31 [INFO] Socket.IO client disconnected: xIquXTL8qO-mcTShAAAL (transport close)
+2026-04-19 18:48:31 [DEBUG] GET /api/nodes
+2026-04-19 18:48:31 [INFO] Socket.IO client connected: YiRNjceRaQfR3s9cAAAO
+2026-04-19 18:48:31 [DEBUG] GET /api/nodes
+2026-04-19 18:48:31 [DEBUG] GET /api/sensors/23bec002
+2026-04-19 18:48:34 [DEBUG] GET /api/sensors/potato_node_03
+2026-04-19 18:57:01 [INFO] Socket.IO client disconnected: Qt_QS8BrPPrNv-aJAAAI (transport close)
+2026-04-19 18:57:02 [DEBUG] GET /api/alerts
+2026-04-19 18:57:02 [INFO] Socket.IO client connected: zZ5upRU6p8En1bBtAAAR
+2026-04-19 18:57:02 [DEBUG] GET /api/alerts
+2026-04-19 18:57:05 [DEBUG] GET /api/nodes
+2026-04-19 18:57:05 [DEBUG] GET /api/nodes
+2026-04-19 18:57:05 [DEBUG] GET /api/sensors/23bec002
+2026-04-19 18:57:09 [DEBUG] GET /api/sensors/potato_node_01
+2026-04-19 18:57:11 [DEBUG] GET /api/sensors/potato_node_03
+2026-04-19 18:57:41 [INFO] Socket.IO client disconnected: zZ5upRU6p8En1bBtAAAR (transport close)
+2026-04-19 18:57:46 [INFO] Socket.IO client disconnected: YiRNjceRaQfR3s9cAAAO (transport close)
+2026-04-19 18:57:46 [DEBUG] GET /api/nodes
+2026-04-19 18:57:46 [INFO] Socket.IO client connected: r0LINRexGDC0xlyAAAAU
+2026-04-19 18:57:46 [DEBUG] GET /api/nodes
+2026-04-19 18:57:46 [DEBUG] GET /api/sensors/23bec002
+2026-04-19 18:57:48 [DEBUG] GET /api/sensors/potato_node_03
+2026-04-19 19:00:00 [INFO] Running batch spoilage score job...
+2026-04-19 19:00:00 [INFO] Batch job complete. Processed 0 nodes.
+2026-04-19 19:04:43 [DEBUG] GET /api/alerts
+2026-04-19 19:04:43 [INFO] Socket.IO client connected: t5AJRUENvPVeyv4AAAAX
+2026-04-19 19:04:43 [DEBUG] GET /api/alerts
+2026-04-19 19:11:10 [DEBUG] GET /api/nodes
+2026-04-19 19:11:10 [DEBUG] GET /api/nodes
+2026-04-19 19:11:10 [DEBUG] GET /api/sensors/23bec002
+2026-04-19 19:11:13 [DEBUG] GET /api/sensors/potato_node_03
+2026-04-19 19:11:15 [DEBUG] GET /api/nodes
+2026-04-19 19:11:15 [DEBUG] GET /api/nodes
+2026-04-19 19:12:12 [INFO] Socket.IO client disconnected: t5AJRUENvPVeyv4AAAAX (transport close)
+2026-04-19 19:12:13 [DEBUG] GET /api/nodes
+2026-04-19 19:12:13 [INFO] Socket.IO client connected: HKSHmI6ryFprl5v4AAAa
+2026-04-19 19:12:13 [DEBUG] GET /api/nodes
+2026-04-19 19:14:40 [INFO] SIGINT received, shutting down...
+2026-04-19 19:14:40 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 19:14:40 [INFO] MQTT reconnecting in 1000ms...
+2026-04-19 19:14:40 [INFO] MQTT disconnected
+2026-04-19 19:14:41 [INFO] MQTT connected to mqtt://localhost:1883
+2026-04-19 19:14:41 [INFO] MQTT subscribed to potato/node/+/data
+2026-04-19 19:15:00 [INFO] Running batch spoilage score job...
+2026-04-19 19:15:00 [INFO] Batch job complete. Processed 0 nodes.
+2026-04-19 19:15:15 [INFO] Socket.IO client disconnected: HKSHmI6ryFprl5v4AAAa (transport close)
+2026-04-19 19:15:26 [INFO] SIGINT received, shutting down...
+2026-04-19 19:15:26 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 19:15:26 [INFO] MQTT reconnecting in 1000ms...
+2026-04-19 19:15:26 [INFO] MQTT disconnected
+2026-04-19 19:15:27 [INFO] SIGINT received, shutting down...
+2026-04-19 19:15:27 [INFO] MQTT disconnected
+2026-04-19 19:15:27 [INFO] MQTT connected to mqtt://localhost:1883
+2026-04-19 19:15:27 [INFO] MQTT subscribed to potato/node/+/data
+2026-04-19 19:15:28 [INFO] SIGINT received, shutting down...
+2026-04-19 19:15:28 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 19:15:28 [INFO] MQTT reconnecting in 1000ms...
+2026-04-19 19:15:28 [INFO] MQTT disconnected
+2026-04-19 19:15:29 [INFO] MQTT connected to mqtt://localhost:1883
+2026-04-19 19:15:29 [INFO] MQTT subscribed to potato/node/+/data
+2026-04-19 19:16:16 [INFO] Initializing PostgreSQL...
+2026-04-19 19:16:16 [INFO] PostgreSQL tables initialized
+2026-04-19 19:16:16 [INFO] Socket.IO initialized
+2026-04-19 19:16:16 [INFO] Connecting to MQTT broker...
+2026-04-19 19:16:16 [INFO] MQTT connected to mqtt://10.240.165.253:1883
+2026-04-19 19:16:16 [INFO] MQTT subscribed to sensor/data
+2026-04-19 19:16:16 [INFO] Batch job scheduled with cron: */15 * * * *
+2026-04-19 19:16:16 [INFO] 🥔 Potato Spoilage Detection System running on port 4000
+2026-04-19 19:16:16 [INFO]    REST API: http://localhost:4000/api
+2026-04-19 19:16:16 [INFO]    Socket.IO: ws://localhost:4000
+2026-04-19 19:16:16 [INFO]    Health: http://localhost:4000/api/health
+2026-04-19 19:16:18 [INFO] Socket.IO client connected: KO4QHHWJkoxltJKPAAAB
+2026-04-19 19:16:19 [INFO] Socket.IO client connected: czRDCh77PZGghLhdAAAD
+2026-04-19 19:16:43 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:16:43 [WARN] Alert: WARNING: temperature at 34.7 exceeds threshold 28 on esp8266_1
+2026-04-19 19:16:43 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:16:45 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:16:45 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:16:47 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:16:47 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:16:49 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:16:49 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:16:51 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:16:51 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:16:53 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:16:53 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:16:55 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:16:55 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:16:57 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:16:57 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:16:59 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:16:59 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:01 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:01 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:03 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:03 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:05 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:05 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:07 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:07 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:10 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:10 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:12 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:12 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:14 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:14 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:16 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:16 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:18 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:18 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:20 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:20 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:22 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:22 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:24 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:24 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:26 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:26 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:28 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:28 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:30 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:30 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:32 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:32 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:34 [DEBUG] Enriched esp8266_1: score=0.142, risk=Low, anomaly=false
+2026-04-19 19:17:35 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:37 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:37 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:39 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:39 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:41 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:41 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:43 [DEBUG] Enriched esp8266_1: score=0.142, risk=Low, anomaly=false
+2026-04-19 19:17:43 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:45 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:45 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:47 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:47 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:49 [DEBUG] Enriched esp8266_1: score=0.142, risk=Low, anomaly=false
+2026-04-19 19:17:49 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:51 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:51 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:53 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:53 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:55 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:55 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:57 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:57 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:17:59 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:17:59 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:02 [DEBUG] Enriched esp8266_1: score=0.142, risk=Low, anomaly=false
+2026-04-19 19:18:02 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:04 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:18:04 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:06 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:18:06 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:08 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:18:08 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:10 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:18:10 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:12 [DEBUG] Enriched esp8266_1: score=0.142, risk=Low, anomaly=false
+2026-04-19 19:18:12 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:14 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:18:14 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:16 [DEBUG] Enriched esp8266_1: score=0.142, risk=Low, anomaly=false
+2026-04-19 19:18:16 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:18 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:18:18 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:20 [DEBUG] Enriched esp8266_1: score=0.142, risk=Low, anomaly=false
+2026-04-19 19:18:20 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:22 [DEBUG] Enriched esp8266_1: score=0.142, risk=Low, anomaly=false
+2026-04-19 19:18:22 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:24 [INFO] Socket.IO client disconnected: czRDCh77PZGghLhdAAAD (transport close)
+2026-04-19 19:18:24 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:18:24 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:26 [DEBUG] GET /api/nodes
+2026-04-19 19:18:26 [INFO] Socket.IO client connected: jZ8CXldkSOnToH9iAAAG
+2026-04-19 19:18:26 [DEBUG] GET /api/nodes
+2026-04-19 19:18:26 [DEBUG] Enriched esp8266_1: score=0.142, risk=Low, anomaly=true
+2026-04-19 19:18:27 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:29 [DEBUG] Enriched esp8266_1: score=0.142, risk=Low, anomaly=false
+2026-04-19 19:18:29 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:31 [DEBUG] Enriched esp8266_1: score=0.142, risk=Low, anomaly=false
+2026-04-19 19:18:31 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:33 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:18:33 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:35 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:18:35 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:35 [DEBUG] GET /api/nodes
+2026-04-19 19:18:35 [DEBUG] GET /api/nodes
+2026-04-19 19:18:35 [DEBUG] GET /api/sensors/esp8266_1
+2026-04-19 19:18:37 [DEBUG] Enriched esp8266_1: score=0.142, risk=Low, anomaly=false
+2026-04-19 19:18:37 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:39 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:18:39 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:41 [DEBUG] Enriched esp8266_1: score=0.142, risk=Low, anomaly=false
+2026-04-19 19:18:41 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:43 [DEBUG] Enriched esp8266_1: score=0.142, risk=Low, anomaly=false
+2026-04-19 19:18:43 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:45 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:18:45 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:47 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:18:47 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:49 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:18:49 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:51 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:18:52 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:53 [DEBUG] Enriched esp8266_1: score=0.142, risk=Low, anomaly=false
+2026-04-19 19:18:53 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:56 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:18:56 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:18:59 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:18:59 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:00 [DEBUG] Enriched esp8266_1: score=0.142, risk=Low, anomaly=false
+2026-04-19 19:19:00 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:02 [DEBUG] Enriched esp8266_1: score=0.142, risk=Low, anomaly=false
+2026-04-19 19:19:02 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:04 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:19:04 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:06 [DEBUG] Enriched esp8266_1: score=0.142, risk=Low, anomaly=false
+2026-04-19 19:19:06 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:08 [DEBUG] Enriched esp8266_1: score=0.142, risk=Low, anomaly=false
+2026-04-19 19:19:08 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:10 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:19:10 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:12 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:19:12 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:14 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:19:14 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:15 [DEBUG] GET /api/alerts
+2026-04-19 19:19:15 [DEBUG] GET /api/alerts
+2026-04-19 19:19:16 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:19:16 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:18 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:19:18 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:20 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:19:21 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:22 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:19:23 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:25 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:19:25 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:27 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:19:27 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:29 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:19:29 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:31 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:19:31 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:33 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:19:33 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:35 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:19:35 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:37 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:19:37 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:39 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:19:39 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:41 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:19:41 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:43 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:19:43 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:45 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:19:45 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:47 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:19:48 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:50 [DEBUG] Enriched esp8266_1: score=0.142, risk=Low, anomaly=false
+2026-04-19 19:19:50 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:52 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:19:52 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:54 [DEBUG] Enriched esp8266_1: score=0.142, risk=Low, anomaly=false
+2026-04-19 19:19:54 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:56 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:19:56 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:19:58 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:19:58 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:00 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:20:00 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:02 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:20:02 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:04 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:20:04 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:06 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:20:06 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:08 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:20:08 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:10 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:20:10 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:12 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:20:12 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:14 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:20:14 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:17 [DEBUG] Enriched esp8266_1: score=0.15, risk=Low, anomaly=false
+2026-04-19 19:20:17 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:19 [DEBUG] Enriched esp8266_1: score=0.265, risk=Low, anomaly=true
+2026-04-19 19:20:19 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:21 [DEBUG] Enriched esp8266_1: score=0.21, risk=Low, anomaly=true
+2026-04-19 19:20:21 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:23 [DEBUG] Enriched esp8266_1: score=0.315, risk=Medium, anomaly=true
+2026-04-19 19:20:23 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:25 [DEBUG] Enriched esp8266_1: score=0.29, risk=Low, anomaly=true
+2026-04-19 19:20:25 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:27 [DEBUG] Enriched esp8266_1: score=0.247, risk=Low, anomaly=true
+2026-04-19 19:20:27 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:29 [DEBUG] Enriched esp8266_1: score=0.217, risk=Low, anomaly=true
+2026-04-19 19:20:29 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:31 [DEBUG] Enriched esp8266_1: score=0.317, risk=Medium, anomaly=true
+2026-04-19 19:20:31 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:33 [DEBUG] Enriched esp8266_1: score=0.302, risk=Medium, anomaly=true
+2026-04-19 19:20:33 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:35 [DEBUG] Enriched esp8266_1: score=0.239, risk=Low, anomaly=true
+2026-04-19 19:20:35 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:37 [DEBUG] Enriched esp8266_1: score=0.197, risk=Low, anomaly=true
+2026-04-19 19:20:38 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:39 [DEBUG] Enriched esp8266_1: score=0.179, risk=Low, anomaly=true
+2026-04-19 19:20:39 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:41 [DEBUG] Enriched esp8266_1: score=0.172, risk=Low, anomaly=true
+2026-04-19 19:20:42 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:44 [DEBUG] Enriched esp8266_1: score=0.169, risk=Low, anomaly=true
+2026-04-19 19:20:44 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:46 [DEBUG] Enriched esp8266_1: score=0.169, risk=Low, anomaly=true
+2026-04-19 19:20:46 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:48 [DEBUG] Enriched esp8266_1: score=0.166, risk=Low, anomaly=true
+2026-04-19 19:20:48 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:50 [DEBUG] Enriched esp8266_1: score=0.166, risk=Low, anomaly=true
+2026-04-19 19:20:50 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:52 [DEBUG] Enriched esp8266_1: score=0.166, risk=Low, anomaly=true
+2026-04-19 19:20:52 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:54 [DEBUG] Enriched esp8266_1: score=0.166, risk=Low, anomaly=true
+2026-04-19 19:20:54 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:56 [DEBUG] Enriched esp8266_1: score=0.166, risk=Low, anomaly=true
+2026-04-19 19:20:56 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:20:58 [DEBUG] Enriched esp8266_1: score=0.166, risk=Low, anomaly=true
+2026-04-19 19:20:58 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:00 [DEBUG] Enriched esp8266_1: score=0.166, risk=Low, anomaly=false
+2026-04-19 19:21:00 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:02 [DEBUG] Enriched esp8266_1: score=0.166, risk=Low, anomaly=false
+2026-04-19 19:21:02 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:04 [DEBUG] Enriched esp8266_1: score=0.164, risk=Low, anomaly=false
+2026-04-19 19:21:04 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:06 [DEBUG] Enriched esp8266_1: score=0.166, risk=Low, anomaly=false
+2026-04-19 19:21:06 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:09 [DEBUG] Enriched esp8266_1: score=0.166, risk=Low, anomaly=false
+2026-04-19 19:21:09 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:11 [DEBUG] Enriched esp8266_1: score=0.164, risk=Low, anomaly=false
+2026-04-19 19:21:11 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:13 [DEBUG] Enriched esp8266_1: score=0.164, risk=Low, anomaly=false
+2026-04-19 19:21:13 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:15 [DEBUG] Enriched esp8266_1: score=0.164, risk=Low, anomaly=false
+2026-04-19 19:21:15 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:17 [DEBUG] Enriched esp8266_1: score=0.161, risk=Low, anomaly=false
+2026-04-19 19:21:17 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:19 [DEBUG] Enriched esp8266_1: score=0.161, risk=Low, anomaly=false
+2026-04-19 19:21:19 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:21 [DEBUG] Enriched esp8266_1: score=0.162, risk=Low, anomaly=false
+2026-04-19 19:21:21 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:23 [DEBUG] Enriched esp8266_1: score=0.162, risk=Low, anomaly=false
+2026-04-19 19:21:23 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:25 [DEBUG] Enriched esp8266_1: score=0.162, risk=Low, anomaly=false
+2026-04-19 19:21:25 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:27 [DEBUG] Enriched esp8266_1: score=0.162, risk=Low, anomaly=false
+2026-04-19 19:21:27 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:29 [DEBUG] Enriched esp8266_1: score=0.162, risk=Low, anomaly=false
+2026-04-19 19:21:29 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:31 [DEBUG] Enriched esp8266_1: score=0.162, risk=Low, anomaly=false
+2026-04-19 19:21:31 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:34 [DEBUG] Enriched esp8266_1: score=0.162, risk=Low, anomaly=false
+2026-04-19 19:21:34 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:36 [DEBUG] Enriched esp8266_1: score=0.162, risk=Low, anomaly=false
+2026-04-19 19:21:36 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:38 [DEBUG] Enriched esp8266_1: score=0.162, risk=Low, anomaly=false
+2026-04-19 19:21:38 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:40 [DEBUG] Enriched esp8266_1: score=0.162, risk=Low, anomaly=false
+2026-04-19 19:21:40 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:42 [DEBUG] Enriched esp8266_1: score=0.162, risk=Low, anomaly=false
+2026-04-19 19:21:42 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:44 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:21:44 [WARN] Alert: WARNING: temperature at 34.5 exceeds threshold 28 on esp8266_1
+2026-04-19 19:21:44 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:46 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:21:46 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:48 [DEBUG] Enriched esp8266_1: score=0.162, risk=Low, anomaly=false
+2026-04-19 19:21:48 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:50 [DEBUG] Enriched esp8266_1: score=0.162, risk=Low, anomaly=false
+2026-04-19 19:21:50 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:52 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:21:52 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:54 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:21:54 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:56 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:21:56 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:21:58 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:21:58 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:22:01 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:22:01 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:22:03 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:22:03 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:22:05 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:22:05 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:22:07 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:22:07 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:22:09 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:22:09 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:22:11 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:22:11 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:22:13 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:22:13 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:22:15 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:22:15 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:22:17 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:22:17 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:22:19 [DEBUG] GET /api/alerts
+2026-04-19 19:22:19 [DEBUG] GET /api/alerts
+2026-04-19 19:22:19 [INFO] Socket.IO client connected: Y0hL52tJEWlrY5FyAAAJ
+2026-04-19 19:22:19 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:22:19 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:22:21 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:22:21 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:22:24 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:22:24 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:22:25 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:22:26 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:22:28 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:22:28 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:22:30 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:22:30 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:22:32 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:22:32 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:22:34 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:22:34 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:22:36 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:22:36 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:22:38 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:22:38 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:23:23 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:23:23 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:23:25 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:23:25 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:23:27 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:23:27 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:23:29 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:23:29 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:23:31 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:23:31 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:23:33 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:23:33 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:23:35 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:23:35 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:23:37 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:23:37 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:23:39 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:23:39 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:23:41 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:23:41 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:23:44 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:23:44 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:23:46 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:23:46 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:23:48 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:23:48 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:23:50 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=true
+2026-04-19 19:23:50 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:23:52 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=true
+2026-04-19 19:23:52 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:23:54 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:23:54 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:23:56 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:23:56 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:23:58 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=true
+2026-04-19 19:23:58 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:00 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:24:00 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:02 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:24:02 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:04 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:24:04 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:06 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:24:06 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:08 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:24:08 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:11 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:24:11 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:13 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:24:13 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:15 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:24:15 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:17 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:24:17 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:19 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:24:19 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:21 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:24:21 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:23 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:24:23 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:25 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:24:25 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:27 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:24:27 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:29 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:24:29 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:31 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:24:32 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:33 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:24:34 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:36 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:24:36 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:38 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:24:38 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:40 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:24:40 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:42 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:24:42 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:44 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:24:44 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:46 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:24:46 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:48 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:24:48 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:50 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:24:50 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:52 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:24:52 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:54 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:24:54 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:56 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:24:56 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:24:58 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:24:58 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:00 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:25:00 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:02 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:25:03 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:05 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:25:05 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:07 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:25:07 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:09 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:25:09 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:11 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:25:11 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:13 [DEBUG] Enriched esp8266_1: score=0.157, risk=Low, anomaly=false
+2026-04-19 19:25:13 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:15 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:25:15 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:17 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:25:17 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:19 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:25:19 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:21 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:25:21 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:23 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:25:23 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:25 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:25:25 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:27 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:25:27 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:30 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:25:30 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:32 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:25:32 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:34 [DEBUG] Enriched esp8266_1: score=0.154, risk=Low, anomaly=false
+2026-04-19 19:25:34 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:36 [DEBUG] Enriched esp8266_1: score=0.289, risk=Low, anomaly=true
+2026-04-19 19:25:36 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:38 [DEBUG] Enriched esp8266_1: score=0.312, risk=Medium, anomaly=true
+2026-04-19 19:25:38 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:40 [DEBUG] Enriched esp8266_1: score=0.254, risk=Low, anomaly=true
+2026-04-19 19:25:40 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:42 [DEBUG] Enriched esp8266_1: score=0.206, risk=Low, anomaly=true
+2026-04-19 19:25:42 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:44 [DEBUG] Enriched esp8266_1: score=0.191, risk=Low, anomaly=true
+2026-04-19 19:25:44 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:46 [DEBUG] Enriched esp8266_1: score=0.176, risk=Low, anomaly=true
+2026-04-19 19:25:46 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:48 [DEBUG] Enriched esp8266_1: score=0.171, risk=Low, anomaly=true
+2026-04-19 19:25:48 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:50 [DEBUG] Enriched esp8266_1: score=0.169, risk=Low, anomaly=true
+2026-04-19 19:25:50 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:52 [DEBUG] Enriched esp8266_1: score=0.166, risk=Low, anomaly=true
+2026-04-19 19:25:52 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:54 [DEBUG] Enriched esp8266_1: score=0.166, risk=Low, anomaly=true
+2026-04-19 19:25:55 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:25:57 [DEBUG] Enriched esp8266_1: score=0.166, risk=Low, anomaly=true
+2026-04-19 19:25:57 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:26:01 [DEBUG] Enriched esp8266_1: score=0.166, risk=Low, anomaly=true
+2026-04-19 19:26:01 [DEBUG] Enriched esp8266_1: score=0.166, risk=Low, anomaly=false
+2026-04-19 19:26:01 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:26:01 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:26:03 [DEBUG] Enriched esp8266_1: score=0.166, risk=Low, anomaly=false
+2026-04-19 19:26:03 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:26:05 [DEBUG] Enriched esp8266_1: score=0.166, risk=Low, anomaly=false
+2026-04-19 19:26:05 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:26:07 [DEBUG] Enriched esp8266_1: score=0.166, risk=Low, anomaly=false
+2026-04-19 19:26:07 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:26:09 [DEBUG] Enriched esp8266_1: score=0.166, risk=Low, anomaly=false
+2026-04-19 19:26:09 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:26:11 [DEBUG] Enriched esp8266_1: score=0.166, risk=Low, anomaly=false
+2026-04-19 19:26:11 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:26:26 [ERROR] MQTT error: read ECONNRESET
+2026-04-19 19:26:26 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 19:26:26 [INFO] MQTT reconnecting in 1000ms...
+2026-04-19 19:26:27 [ERROR] MQTT error: connect ENETUNREACH 10.240.165.253:1883
+2026-04-19 19:26:27 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 19:26:27 [INFO] MQTT reconnecting in 2000ms...
+2026-04-19 19:26:29 [ERROR] MQTT error: connect ENETUNREACH 10.240.165.253:1883
+2026-04-19 19:26:29 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 19:26:29 [INFO] MQTT reconnecting in 4000ms...
+2026-04-19 19:26:34 [INFO] MQTT connected to mqtt://10.240.165.253:1883
+2026-04-19 19:26:34 [INFO] MQTT subscribed to sensor/data
+2026-04-19 19:26:52 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:26:52 [WARN] Alert: WARNING: temperature at 34.5 exceeds threshold 28 on esp8266_1
+2026-04-19 19:26:52 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:26:54 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:26:54 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:26:56 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:26:56 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:26:58 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:26:58 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:27:01 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:27:01 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:27:03 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:27:03 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:27:05 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:27:05 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:27:07 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:27:07 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:27:09 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:27:09 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:27:11 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:27:11 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:27:13 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:27:13 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:27:15 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:27:15 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:27:17 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:27:17 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:27:19 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:27:19 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:27:21 [DEBUG] Enriched esp8266_1: score=0.159, risk=Low, anomaly=false
+2026-04-19 19:27:21 [DEBUG] Pipeline complete for esp8266_1
+2026-04-19 19:28:04 [ERROR] MQTT error: Keepalive timeout
+2026-04-19 19:28:04 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 19:28:04 [INFO] MQTT reconnecting in 1000ms...
+2026-04-19 19:28:05 [ERROR] MQTT error: connect EHOSTUNREACH 10.240.165.253:1883
+2026-04-19 19:28:05 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 19:28:05 [INFO] MQTT reconnecting in 2000ms...
+2026-04-19 19:28:07 [ERROR] MQTT error: connect EHOSTUNREACH 10.240.165.253:1883
+2026-04-19 19:28:07 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 19:28:07 [INFO] MQTT reconnecting in 4000ms...
+2026-04-19 19:28:11 [ERROR] MQTT error: connect EHOSTUNREACH 10.240.165.253:1883
+2026-04-19 19:28:11 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 19:28:11 [INFO] MQTT reconnecting in 8000ms...
+2026-04-19 19:28:19 [ERROR] MQTT error: connect EHOSTUNREACH 10.240.165.253:1883
+2026-04-19 19:28:19 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 19:28:19 [INFO] MQTT reconnecting in 16000ms...
+2026-04-19 19:28:35 [ERROR] MQTT error: connect EHOSTUNREACH 10.240.165.253:1883
+2026-04-19 19:28:35 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 19:28:35 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 19:29:15 [ERROR] MQTT error: connack timeout
+2026-04-19 19:29:15 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 19:29:15 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 19:29:55 [ERROR] MQTT error: connack timeout
+2026-04-19 19:29:55 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 19:29:55 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 19:30:00 [INFO] Running batch spoilage score job...
+2026-04-19 19:30:00 [INFO] Batch score for esp8266_1: 0.159 (Low)
+2026-04-19 19:30:00 [INFO] Batch job complete. Processed 1 nodes.
+2026-04-19 19:30:35 [ERROR] MQTT error: connack timeout
+2026-04-19 19:30:35 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 19:30:35 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 19:31:15 [ERROR] MQTT error: connack timeout
+2026-04-19 19:31:15 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 19:31:15 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 19:31:55 [ERROR] MQTT error: connack timeout
+2026-04-19 19:31:55 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 19:31:55 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 19:32:35 [ERROR] MQTT error: connack timeout
+2026-04-19 19:32:35 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 19:32:35 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 19:33:15 [ERROR] MQTT error: connack timeout
+2026-04-19 19:33:15 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 19:33:15 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 19:33:55 [ERROR] MQTT error: connack timeout
+2026-04-19 19:33:55 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 19:33:55 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 19:34:35 [ERROR] MQTT error: connack timeout
+2026-04-19 19:34:35 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 19:34:35 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 19:35:15 [ERROR] MQTT error: connack timeout
+2026-04-19 19:35:15 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 19:35:15 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 19:35:55 [ERROR] MQTT error: connack timeout
+2026-04-19 19:35:55 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 19:35:55 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 19:36:24 [INFO] Socket.IO client disconnected: Y0hL52tJEWlrY5FyAAAJ (transport close)
+2026-04-19 19:36:24 [INFO] Socket.IO client disconnected: KO4QHHWJkoxltJKPAAAB (transport close)
+2026-04-19 19:36:24 [INFO] Socket.IO client disconnected: jZ8CXldkSOnToH9iAAAG (transport close)
+2026-04-19 20:20:25 [ERROR] MQTT error: connack timeout
+2026-04-19 20:20:25 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:20:25 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:21:05 [ERROR] MQTT error: connack timeout
+2026-04-19 20:21:05 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:21:05 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:21:13 [INFO] Socket.IO client connected: -aBQp-3YJFMxOuloAAAM
+2026-04-19 20:21:13 [INFO] Socket.IO client connected: JXAh96fBsY4xEp2bAAAN
+2026-04-19 20:21:13 [INFO] Socket.IO client connected: 3Cjk1iloD3c4bTtgAAAP
+2026-04-19 20:21:45 [ERROR] MQTT error: connack timeout
+2026-04-19 20:21:46 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:21:46 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:22:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:22:26 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:22:26 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:23:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:23:06 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:23:06 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:23:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:23:46 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:23:46 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:24:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:24:26 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:24:26 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:25:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:25:06 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:25:06 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:25:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:25:46 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:25:46 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:26:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:26:26 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:26:26 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:27:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:27:06 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:27:06 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:27:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:27:46 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:27:46 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:28:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:28:26 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:28:26 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:29:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:29:06 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:29:06 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:29:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:29:46 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:29:46 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:30:00 [INFO] Running batch spoilage score job...
+2026-04-19 20:30:00 [INFO] Batch score for esp8266_1: 0.159 (Low)
+2026-04-19 20:30:00 [WARN] Node esp8266_1 marked offline (no data for >5min)
+2026-04-19 20:30:00 [INFO] Batch job complete. Processed 1 nodes.
+2026-04-19 20:30:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:30:26 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:30:26 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:31:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:31:06 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:31:06 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:31:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:31:46 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:31:46 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:32:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:32:26 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:32:26 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:33:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:33:06 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:33:06 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:33:13 [INFO] Socket.IO client disconnected: -aBQp-3YJFMxOuloAAAM (transport close)
+2026-04-19 20:33:13 [DEBUG] GET /api/alerts
+2026-04-19 20:33:13 [INFO] Socket.IO client connected: fb7_LQMv4cw7H5wJAAAS
+2026-04-19 20:33:13 [DEBUG] GET /api/alerts
+2026-04-19 20:33:21 [DEBUG] GET /api/nodes
+2026-04-19 20:33:21 [DEBUG] GET /api/nodes
+2026-04-19 20:33:21 [DEBUG] GET /api/sensors/esp8266_1
+2026-04-19 20:33:24 [DEBUG] GET /api/alerts
+2026-04-19 20:33:24 [DEBUG] GET /api/alerts
+2026-04-19 20:33:25 [DEBUG] GET /api/nodes
+2026-04-19 20:33:25 [DEBUG] GET /api/nodes
+2026-04-19 20:33:33 [INFO] Socket.IO client disconnected: fb7_LQMv4cw7H5wJAAAS (transport close)
+2026-04-19 20:33:34 [INFO] Socket.IO client disconnected: 3Cjk1iloD3c4bTtgAAAP (transport close)
+2026-04-19 20:33:34 [DEBUG] GET /api/alerts
+2026-04-19 20:33:34 [INFO] Socket.IO client connected: pKPu5MpIZEEIjwtGAAAV
+2026-04-19 20:33:34 [DEBUG] GET /api/alerts
+2026-04-19 20:33:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:33:46 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:33:46 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:34:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:34:26 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:34:26 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:34:34 [INFO] Socket.IO client disconnected: pKPu5MpIZEEIjwtGAAAV (transport close)
+2026-04-19 20:35:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:35:06 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:35:06 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:35:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:35:46 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:35:46 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:36:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:36:26 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:36:26 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:37:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:37:06 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:37:06 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:37:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:37:46 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:37:46 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:38:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:38:26 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:38:26 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:39:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:39:06 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:39:06 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:39:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:39:46 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:39:46 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:40:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:40:26 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:40:26 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:41:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:41:06 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:41:06 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:41:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:41:46 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:41:46 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:42:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:42:26 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:42:26 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:43:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:43:06 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:43:06 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:43:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:43:46 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:43:46 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:44:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:44:26 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:44:26 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:45:00 [INFO] Running batch spoilage score job...
+2026-04-19 20:45:00 [INFO] Batch score for esp8266_1: 0.159 (Low)
+2026-04-19 20:45:00 [WARN] Node esp8266_1 marked offline (no data for >5min)
+2026-04-19 20:45:00 [INFO] Batch job complete. Processed 1 nodes.
+2026-04-19 20:45:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:45:06 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:45:06 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:45:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:45:46 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:45:46 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:46:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:46:26 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:46:26 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:47:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:47:06 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:47:06 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:47:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:47:46 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:47:46 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:48:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:48:26 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:48:26 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:49:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:49:06 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:49:06 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:49:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:49:46 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:49:46 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:50:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:50:26 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:50:26 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:51:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:51:06 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:51:06 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:51:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:51:46 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:51:46 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:52:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:52:26 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:52:26 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:53:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:53:06 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:53:06 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:53:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:53:46 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:53:46 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:54:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:54:26 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:54:26 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:55:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:55:06 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:55:06 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:55:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:55:46 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:55:46 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:56:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:56:26 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:56:26 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:57:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:57:06 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:57:06 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:57:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:57:46 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:57:46 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:58:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:58:26 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:58:26 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:59:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:59:06 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:59:06 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 20:59:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:59:46 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 20:59:46 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:00:00 [INFO] Running batch spoilage score job...
+2026-04-19 21:00:00 [INFO] Batch score for esp8266_1: 0.159 (Low)
+2026-04-19 21:00:00 [WARN] Node esp8266_1 marked offline (no data for >5min)
+2026-04-19 21:00:00 [INFO] Batch job complete. Processed 1 nodes.
+2026-04-19 21:00:26 [ERROR] MQTT error: connack timeout
+2026-04-19 21:00:26 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:00:26 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:01:07 [ERROR] MQTT error: connack timeout
+2026-04-19 21:01:07 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:01:07 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:01:47 [ERROR] MQTT error: connack timeout
+2026-04-19 21:01:47 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:01:47 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:02:27 [ERROR] MQTT error: connack timeout
+2026-04-19 21:02:27 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:02:27 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:03:07 [ERROR] MQTT error: connack timeout
+2026-04-19 21:03:07 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:03:07 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:03:47 [ERROR] MQTT error: connack timeout
+2026-04-19 21:03:47 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:03:47 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:04:27 [ERROR] MQTT error: connack timeout
+2026-04-19 21:04:27 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:04:27 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:05:07 [ERROR] MQTT error: connack timeout
+2026-04-19 21:05:07 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:05:07 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:05:47 [ERROR] MQTT error: connack timeout
+2026-04-19 21:05:47 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:05:47 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:06:27 [ERROR] MQTT error: connack timeout
+2026-04-19 21:06:27 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:06:27 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:07:07 [ERROR] MQTT error: connack timeout
+2026-04-19 21:07:07 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:07:07 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:07:47 [ERROR] MQTT error: connack timeout
+2026-04-19 21:07:47 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:07:47 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:08:27 [ERROR] MQTT error: connack timeout
+2026-04-19 21:08:27 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:08:27 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:09:07 [ERROR] MQTT error: connack timeout
+2026-04-19 21:09:07 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:09:07 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:09:47 [ERROR] MQTT error: connack timeout
+2026-04-19 21:09:47 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:09:47 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:10:27 [ERROR] MQTT error: connack timeout
+2026-04-19 21:10:27 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:10:27 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:11:07 [ERROR] MQTT error: connack timeout
+2026-04-19 21:11:07 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:11:07 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:11:47 [ERROR] MQTT error: connack timeout
+2026-04-19 21:11:47 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:11:47 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:12:27 [ERROR] MQTT error: connack timeout
+2026-04-19 21:12:27 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:12:27 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:13:07 [ERROR] MQTT error: connack timeout
+2026-04-19 21:13:07 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:13:07 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:13:47 [ERROR] MQTT error: connack timeout
+2026-04-19 21:13:47 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:13:47 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:14:27 [ERROR] MQTT error: connack timeout
+2026-04-19 21:14:27 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:14:27 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:15:00 [INFO] Running batch spoilage score job...
+2026-04-19 21:15:00 [INFO] Batch score for esp8266_1: 0.159 (Low)
+2026-04-19 21:15:00 [WARN] Node esp8266_1 marked offline (no data for >5min)
+2026-04-19 21:15:00 [INFO] Batch job complete. Processed 1 nodes.
+2026-04-19 21:15:07 [ERROR] MQTT error: connack timeout
+2026-04-19 21:15:07 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:15:07 [INFO] MQTT reconnecting in 30000ms...
+2026-04-19 21:15:47 [ERROR] MQTT error: connack timeout
+2026-04-19 21:15:47 [WARN] MQTT connection closed, scheduling reconnect...
+2026-04-19 21:15:47 [INFO] MQTT reconnecting in 30000ms...

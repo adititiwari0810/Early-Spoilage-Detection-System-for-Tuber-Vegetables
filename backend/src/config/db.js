@@ -20,6 +20,16 @@ const influxQueryApi = influxDB.getQueryApi(process.env.INFLUX_ORG);
 
 /**
  * Write a sensor reading to InfluxDB with single retry on failure.
+ *
+ * Fields written:
+ *   - temperature (float)    — DHT11
+ *   - humidity (float)       — DHT11
+ *   - co2_ppm (float)        — MG811
+ *   - air_alert (int)        — MQ-135 digital (0 or 1)
+ *   - ethanol_alert (int)    — MQ-3 digital (0 or 1)
+ *   - ambient_temp_est (float) — computed estimate
+ *   - ambient_hum_est (float)  — computed estimate
+ *   - spoilage_score, EMAs, Z-scores (if enriched)
  */
 const writeSensorData = async (data) => {
   const point = new Point('sensor_reading')
@@ -27,9 +37,17 @@ const writeSensorData = async (data) => {
     .floatField('temperature', data.temperature)
     .floatField('humidity', data.humidity)
     .floatField('co2_ppm', data.co2_ppm)
-    .floatField('ethylene_ppm', data.ethylene_ppm)
-    .floatField('gas_raw', data.gas_raw)
+    .intField('air_alert', data.air_alert || 0)
+    .intField('ethanol_alert', data.ethanol_alert || 0)
     .timestamp(new Date(data.timestamp * 1000));
+
+  // Optional ambient estimates
+  if (data.ambient_temp_est != null) {
+    point.floatField('ambient_temp_est', data.ambient_temp_est);
+  }
+  if (data.ambient_hum_est != null) {
+    point.floatField('ambient_hum_est', data.ambient_hum_est);
+  }
 
   // Add enriched fields if present
   if (data.enriched) {
@@ -38,7 +56,6 @@ const writeSensorData = async (data) => {
     if (e.temp_ema !== undefined) point.floatField('temp_ema', e.temp_ema);
     if (e.hum_ema !== undefined) point.floatField('hum_ema', e.hum_ema);
     if (e.co2_ema !== undefined) point.floatField('co2_ema', e.co2_ema);
-    if (e.eth_ema !== undefined) point.floatField('eth_ema', e.eth_ema);
     if (e.temp_zscore !== undefined) point.floatField('temp_zscore', e.temp_zscore);
     if (e.anomaly_flag !== undefined) point.booleanField('anomaly_flag', e.anomaly_flag);
   }
@@ -81,13 +98,14 @@ const querySensorData = async (nodeId, range = '1h') => {
           temperature: obj.temperature,
           humidity: obj.humidity,
           co2_ppm: obj.co2_ppm,
-          ethylene_ppm: obj.ethylene_ppm,
-          gas_raw: obj.gas_raw,
+          air_alert: obj.air_alert,
+          ethanol_alert: obj.ethanol_alert,
+          ambient_temp_est: obj.ambient_temp_est,
+          ambient_hum_est: obj.ambient_hum_est,
           spoilage_score: obj.spoilage_score,
           temp_ema: obj.temp_ema,
           hum_ema: obj.hum_ema,
           co2_ema: obj.co2_ema,
-          eth_ema: obj.eth_ema,
           temp_zscore: obj.temp_zscore,
           anomaly_flag: obj.anomaly_flag,
         });

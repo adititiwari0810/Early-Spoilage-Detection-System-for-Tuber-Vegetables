@@ -13,3 +13,107 @@
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
     at async initPostgres (file:///C:/Users/sama/.gemini/antigravity/scratch/potato-spoilage-system/backend/src/config/db.js:126:18)
     at async start (file:///C:/Users/sama/.gemini/antigravity/scratch/potato-spoilage-system/backend/server.js:19:5)
+2026-04-19 19:26:26 [ERROR] MQTT error: read ECONNRESET
+2026-04-19 19:26:27 [ERROR] MQTT error: connect ENETUNREACH 10.240.165.253:1883
+2026-04-19 19:26:29 [ERROR] MQTT error: connect ENETUNREACH 10.240.165.253:1883
+2026-04-19 19:28:04 [ERROR] MQTT error: Keepalive timeout
+2026-04-19 19:28:05 [ERROR] MQTT error: connect EHOSTUNREACH 10.240.165.253:1883
+2026-04-19 19:28:07 [ERROR] MQTT error: connect EHOSTUNREACH 10.240.165.253:1883
+2026-04-19 19:28:11 [ERROR] MQTT error: connect EHOSTUNREACH 10.240.165.253:1883
+2026-04-19 19:28:19 [ERROR] MQTT error: connect EHOSTUNREACH 10.240.165.253:1883
+2026-04-19 19:28:35 [ERROR] MQTT error: connect EHOSTUNREACH 10.240.165.253:1883
+2026-04-19 19:29:15 [ERROR] MQTT error: connack timeout
+2026-04-19 19:29:55 [ERROR] MQTT error: connack timeout
+2026-04-19 19:30:35 [ERROR] MQTT error: connack timeout
+2026-04-19 19:31:15 [ERROR] MQTT error: connack timeout
+2026-04-19 19:31:55 [ERROR] MQTT error: connack timeout
+2026-04-19 19:32:35 [ERROR] MQTT error: connack timeout
+2026-04-19 19:33:15 [ERROR] MQTT error: connack timeout
+2026-04-19 19:33:55 [ERROR] MQTT error: connack timeout
+2026-04-19 19:34:35 [ERROR] MQTT error: connack timeout
+2026-04-19 19:35:15 [ERROR] MQTT error: connack timeout
+2026-04-19 19:35:55 [ERROR] MQTT error: connack timeout
+2026-04-19 20:20:25 [ERROR] MQTT error: connack timeout
+2026-04-19 20:21:05 [ERROR] MQTT error: connack timeout
+2026-04-19 20:21:45 [ERROR] MQTT error: connack timeout
+2026-04-19 20:22:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:23:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:23:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:24:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:25:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:25:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:26:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:27:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:27:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:28:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:29:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:29:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:30:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:31:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:31:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:32:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:33:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:33:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:34:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:35:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:35:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:36:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:37:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:37:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:38:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:39:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:39:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:40:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:41:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:41:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:42:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:43:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:43:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:44:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:45:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:45:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:46:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:47:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:47:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:48:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:49:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:49:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:50:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:51:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:51:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:52:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:53:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:53:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:54:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:55:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:55:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:56:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:57:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:57:46 [ERROR] MQTT error: connack timeout
+2026-04-19 20:58:26 [ERROR] MQTT error: connack timeout
+2026-04-19 20:59:06 [ERROR] MQTT error: connack timeout
+2026-04-19 20:59:46 [ERROR] MQTT error: connack timeout
+2026-04-19 21:00:26 [ERROR] MQTT error: connack timeout
+2026-04-19 21:01:07 [ERROR] MQTT error: connack timeout
+2026-04-19 21:01:47 [ERROR] MQTT error: connack timeout
+2026-04-19 21:02:27 [ERROR] MQTT error: connack timeout
+2026-04-19 21:03:07 [ERROR] MQTT error: connack timeout
+2026-04-19 21:03:47 [ERROR] MQTT error: connack timeout
+2026-04-19 21:04:27 [ERROR] MQTT error: connack timeout
+2026-04-19 21:05:07 [ERROR] MQTT error: connack timeout
+2026-04-19 21:05:47 [ERROR] MQTT error: connack timeout
+2026-04-19 21:06:27 [ERROR] MQTT error: connack timeout
+2026-04-19 21:07:07 [ERROR] MQTT error: connack timeout
+2026-04-19 21:07:47 [ERROR] MQTT error: connack timeout
+2026-04-19 21:08:27 [ERROR] MQTT error: connack timeout
+2026-04-19 21:09:07 [ERROR] MQTT error: connack timeout
+2026-04-19 21:09:47 [ERROR] MQTT error: connack timeout
+2026-04-19 21:10:27 [ERROR] MQTT error: connack timeout
+2026-04-19 21:11:07 [ERROR] MQTT error: connack timeout
+2026-04-19 21:11:47 [ERROR] MQTT error: connack timeout
+2026-04-19 21:12:27 [ERROR] MQTT error: connack timeout
+2026-04-19 21:13:07 [ERROR] MQTT error: connack timeout
+2026-04-19 21:13:47 [ERROR] MQTT error: connack timeout
+2026-04-19 21:14:27 [ERROR] MQTT error: connack timeout
+2026-04-19 21:15:07 [ERROR] MQTT error: connack timeout
+2026-04-19 21:15:47 [ERROR] MQTT error: connack timeout

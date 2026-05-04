@@ -41,15 +41,7 @@ const CHART_CONFIGS = {
     emaColor: '#A78BFA',
     domain: [0, 5000],
   },
-  ethylene: {
-    label: 'Ethylene',
-    unit: 'ppm',
-    rawKey: 'ethylene_ppm',
-    emaKey: 'eth_ema',
-    color: '#10B981',
-    emaColor: '#34D399',
-    domain: [0, 50],
-  },
+
 };
 
 const CustomTooltip = ({ active, payload, label }) => {

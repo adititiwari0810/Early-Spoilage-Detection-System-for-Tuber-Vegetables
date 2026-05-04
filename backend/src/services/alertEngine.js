@@ -24,10 +24,6 @@ const getThresholds = () => ({
     warning: parseFloat(process.env.ALERT_CO2_WARNING) || 2000,
     critical: parseFloat(process.env.ALERT_CO2_CRITICAL) || 3500,
   },
-  ethylene_ppm: {
-    warning: parseFloat(process.env.ALERT_ETH_WARNING) || 5,
-    critical: parseFloat(process.env.ALERT_ETH_CRITICAL) || 15,
-  },
   spoilage_score: {
     warning: parseFloat(process.env.ALERT_SCORE_WARNING) || 0.5,
     critical: parseFloat(process.env.ALERT_SCORE_CRITICAL) || 0.75,
@@ -116,12 +112,11 @@ const evaluateReading = async (enrichedData, emitAlert) => {
   const nodeId = enrichedData.node_id;
   const triggeredAlerts = [];
 
-  // Check each sensor metric
+  // Check continuous sensor metrics against thresholds
   const metricsToCheck = [
     { metric: 'temperature', value: enrichedData.temperature },
     { metric: 'humidity', value: enrichedData.humidity },
     { metric: 'co2_ppm', value: enrichedData.co2_ppm },
-    { metric: 'ethylene_ppm', value: enrichedData.ethylene_ppm },
   ];
 
   // Check spoilage score if enriched data is available
@@ -146,6 +141,47 @@ const evaluateReading = async (enrichedData, emitAlert) => {
           emitAlert(storedAlert);
         }
 
+        logger.warn(`Alert: ${alert.message}`);
+      }
+    }
+  }
+
+  // Check digital alerts from hardware (MQ-135 air_alert, MQ-3 ethanol_alert)
+  if (enrichedData.air_alert === 1) {
+    if (!isOnCooldown(nodeId, 'air_quality', 'warning')) {
+      const alert = {
+        node_id: nodeId,
+        metric: 'air_quality',
+        level: 'warning',
+        value: 1,
+        threshold: 1,
+        message: `WARNING: MQ-135 air quality alert triggered on ${nodeId}`,
+      };
+      const storedAlert = await storeAlert(alert);
+      if (storedAlert) {
+        setCooldown(nodeId, 'air_quality', 'warning');
+        triggeredAlerts.push(storedAlert);
+        if (emitAlert) emitAlert(storedAlert);
+        logger.warn(`Alert: ${alert.message}`);
+      }
+    }
+  }
+
+  if (enrichedData.ethanol_alert === 1) {
+    if (!isOnCooldown(nodeId, 'ethanol', 'warning')) {
+      const alert = {
+        node_id: nodeId,
+        metric: 'ethanol',
+        level: 'warning',
+        value: 1,
+        threshold: 1,
+        message: `WARNING: MQ-3 ethanol alert triggered on ${nodeId}`,
+      };
+      const storedAlert = await storeAlert(alert);
+      if (storedAlert) {
+        setCooldown(nodeId, 'ethanol', 'warning');
+        triggeredAlerts.push(storedAlert);
+        if (emitAlert) emitAlert(storedAlert);
         logger.warn(`Alert: ${alert.message}`);
       }
     }

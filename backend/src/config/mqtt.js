@@ -8,7 +8,6 @@ class MqttClient extends EventEmitter {
     this.client = null;
     this.reconnectDelay = 1000;
     this.maxReconnectDelay = 30000;
-    this.topicPrefix = process.env.MQTT_TOPIC_PREFIX || 'potato/node';
   }
 
   /**
@@ -28,8 +27,8 @@ class MqttClient extends EventEmitter {
         logger.info(`MQTT connected to ${brokerUrl}`);
         this.reconnectDelay = 1000; // Reset on successful connect
 
-        // Subscribe to all node data topics
-        const topic = `${this.topicPrefix}/+/data`;
+        // Subscribe to the hardware's topic
+        const topic = 'sensor/data';
         this.client.subscribe(topic, { qos: 1 }, (err) => {
           if (err) {
             logger.error(`MQTT subscribe error: ${err.message}`);
@@ -84,43 +83,56 @@ class MqttClient extends EventEmitter {
   }
 
   /**
-   * Parse and validate incoming MQTT messages.
+   * Parse the ESP8266 hardware JSON format from sensor/data topic.
+   *
+   * Incoming JSON:
+   * {
+   *   "device": "esp8266_1",
+   *   "dht_temp": 34.8,
+   *   "dht_hum": 8,
+   *   "ambient_temp_est": 34.4,
+   *   "ambient_hum_est": 11.0,
+   *   "co2": 550,
+   *   "air_alert": 0,
+   *   "ethanol_alert": 0
+   * }
+   *
+   * Normalized to internal format:
+   * {
+   *   node_id, timestamp, temperature, humidity,
+   *   co2_ppm, air_alert, ethanol_alert,
+   *   ambient_temp_est, ambient_hum_est
+   * }
    */
   _handleMessage(topic, message) {
+    if (topic !== 'sensor/data') return;
+
+    let rawData;
     let data;
 
-    // Safe JSON parse
     try {
-      data = JSON.parse(message.toString());
+      rawData = JSON.parse(message.toString());
+
+      data = {
+        node_id:           rawData.device || 'esp8266_1',
+        timestamp:         Math.floor(Date.now() / 1000),
+        temperature:       parseFloat(rawData.dht_temp) || 25.0,
+        humidity:          parseFloat(rawData.dht_hum) || 50.0,
+        co2_ppm:           parseInt(rawData.co2, 10) || 400,
+        air_alert:         rawData.air_alert === 1 || rawData.air_alert === true ? 1 : 0,
+        ethanol_alert:     rawData.ethanol_alert === 1 || rawData.ethanol_alert === true ? 1 : 0,
+        ambient_temp_est:  parseFloat(rawData.ambient_temp_est) || null,
+        ambient_hum_est:   parseFloat(rawData.ambient_hum_est) || null,
+      };
     } catch (err) {
-      logger.warn(`Malformed JSON on topic ${topic}: ${err.message}`);
+      logger.warn(`Failed to parse sensor/data JSON: ${err.message}`);
       return;
-    }
-
-    // Extract nodeId from topic
-    const topicParts = topic.split('/');
-    const topicNodeId = topicParts[2];
-
-    // Validate required fields
-    const requiredFields = ['node_id', 'timestamp', 'temperature', 'humidity', 'co2_ppm', 'ethylene_ppm', 'gas_raw'];
-    for (const field of requiredFields) {
-      if (data[field] === undefined || data[field] === null) {
-        logger.warn(`Missing field '${field}' in message from ${topicNodeId}`);
-        return;
-      }
     }
 
     // Validate value ranges
     if (!this._validateRanges(data)) {
       logger.warn(`Out-of-range values from ${data.node_id}, discarding`);
       return;
-    }
-
-    // Validate node_id matches topic
-    if (data.node_id !== topicNodeId) {
-      logger.warn(`node_id mismatch: payload=${data.node_id}, topic=${topicNodeId}`);
-      // Use topic nodeId as authoritative
-      data.node_id = topicNodeId;
     }
 
     // Emit validated data
@@ -134,9 +146,8 @@ class MqttClient extends EventEmitter {
     if (typeof data.temperature !== 'number' || data.temperature < -50 || data.temperature > 80) return false;
     if (typeof data.humidity !== 'number' || data.humidity < 0 || data.humidity > 100) return false;
     if (typeof data.co2_ppm !== 'number' || data.co2_ppm < 0 || data.co2_ppm > 50000) return false;
-    if (typeof data.ethylene_ppm !== 'number' || data.ethylene_ppm < 0 || data.ethylene_ppm > 1000) return false;
-    if (typeof data.gas_raw !== 'number' || data.gas_raw < 0 || data.gas_raw > 10000) return false;
     if (typeof data.timestamp !== 'number' || data.timestamp < 0) return false;
+    // air_alert and ethanol_alert are 0 or 1, no strict range needed
     return true;
   }
 

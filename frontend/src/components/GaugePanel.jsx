@@ -167,7 +167,7 @@ const GaugePanel = ({ reading }) => {
         value={reading.co2_ppm}
         min={0}
         max={5000}
-        label="CO₂"
+        label="CO₂ (MG811)"
         unit="ppm"
         thresholds={{ warning: 2000, critical: 3500 }}
       />

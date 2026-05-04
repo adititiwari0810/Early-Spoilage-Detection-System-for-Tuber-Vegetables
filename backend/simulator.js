@@ -2,19 +2,20 @@ import 'dotenv/config';
 import mqtt from 'mqtt';
 
 /**
- * Potato Spoilage Sensor Simulator
- * Publishes simulated ESP32 sensor data to MQTT broker.
- * Simulates gradual spoilage progression over time.
+ * Spoilage Sensor Simulator (Node.js)
+ * Publishes simulated ESP8266 sensor data to MQTT broker.
+ * Generates the EXACT same JSON format as the real hardware.
+ *
+ * Topic: sensor/data
+ * Payload: { device, dht_temp, dht_hum, ambient_temp_est, ambient_hum_est, co2, air_alert, ethanol_alert }
  */
 
 const BROKER_URL = process.env.MQTT_BROKER_URL || 'mqtt://localhost:1883';
-const TOPIC_PREFIX = process.env.MQTT_TOPIC_PREFIX || 'potato/node';
-const INTERVAL_MS = 3000; // Publish every 3 seconds
+const INTERVAL_MS = 500; // Match real hardware interval (500ms)
 
 const NODES = [
-  { id: 'potato_node_01', name: 'Storage Room A' },
-  { id: 'potato_node_02', name: 'Storage Room B' },
-  { id: 'potato_node_03', name: 'Warehouse C' },
+  { id: 'esp8266_sim_01', name: 'Storage Room A' },
+  { id: 'esp8266_sim_02', name: 'Storage Room B' },
 ];
 
 // Spoilage progression state per node
@@ -22,42 +23,47 @@ const nodeState = {};
 
 for (const node of NODES) {
   nodeState[node.id] = {
-    spoilageProgress: Math.random() * 0.2, // Start with some randomness
-    baseTemp: 18 + Math.random() * 4,      // 18-22°C base
-    baseHumidity: 75 + Math.random() * 10,  // 75-85% base
-    baseCo2: 600 + Math.random() * 200,     // 600-800 ppm base
-    baseEthylene: 0.2 + Math.random() * 0.3,// 0.2-0.5 ppm base
-    baseGas: 200 + Math.random() * 50,      // 200-250 raw
+    spoilageProgress: Math.random() * 0.1, // Start with some randomness
+    baseTemp: 24 + Math.random() * 4,      // 24-28°C base
+    baseHumidity: 35 + Math.random() * 15,  // 35-50% base
+    baseCo2: 450 + Math.random() * 100,     // 450-550 ppm base (MG811 calibrated)
   };
 }
 
 /**
- * Generate a sensor reading with gradual spoilage progression.
+ * Generate a sensor reading matching the ESP8266 hardware JSON format.
  */
 const generateReading = (nodeId) => {
   const state = nodeState[nodeId];
 
   // Slowly increase spoilage over time
-  state.spoilageProgress += 0.001 + Math.random() * 0.002;
+  state.spoilageProgress += 0.0005 + Math.random() * 0.001;
   const sp = Math.min(state.spoilageProgress, 1);
 
   // Add noise + spoilage drift
   const noise = () => (Math.random() - 0.5) * 2;
 
-  const temperature = state.baseTemp + sp * 15 + noise() * 1.5;
-  const humidity = Math.min(100, state.baseHumidity + sp * 15 + noise() * 2);
-  const co2_ppm = state.baseCo2 + sp * 4000 + noise() * 100;
-  const ethylene_ppm = state.baseEthylene + sp * 20 + noise() * 0.5;
-  const gas_raw = state.baseGas + sp * 500 + noise() * 20;
+  const dht_temp = state.baseTemp + sp * 12 + noise() * 0.5;
+  const dht_hum = Math.min(100, state.baseHumidity + sp * 30 + noise() * 2);
+  const co2 = Math.min(5000, Math.max(400, state.baseCo2 + sp * 3000 + noise() * 30));
+
+  // Compute derived values (matching real hardware)
+  const ambient_temp_est = dht_temp - 0.4;
+  const ambient_hum_est = dht_hum + 3.0;
+
+  // Simulate digital alerts based on thresholds
+  const air_alert = co2 > 1200 ? 1 : 0;
+  const ethanol_alert = dht_temp > 32 ? 1 : 0;
 
   return {
-    node_id: nodeId,
-    timestamp: Math.floor(Date.now() / 1000),
-    temperature: Math.round(temperature * 10) / 10,
-    humidity: Math.round(Math.max(0, humidity) * 10) / 10,
-    co2_ppm: Math.round(Math.max(0, co2_ppm)),
-    ethylene_ppm: Math.round(Math.max(0, ethylene_ppm) * 100) / 100,
-    gas_raw: Math.round(Math.max(0, gas_raw)),
+    device: nodeId,
+    dht_temp: Math.round(dht_temp * 10) / 10,
+    dht_hum: Math.round(Math.max(0, dht_hum)),
+    ambient_temp_est: Math.round(ambient_temp_est * 10) / 10,
+    ambient_hum_est: Math.round(ambient_hum_est * 10) / 10,
+    co2: Math.round(co2),
+    air_alert,
+    ethanol_alert,
   };
 };
 
@@ -65,23 +71,23 @@ const generateReading = (nodeId) => {
 const client = mqtt.connect(BROKER_URL);
 
 client.on('connect', () => {
-  console.log(`🥔 Simulator connected to MQTT broker at ${BROKER_URL}`);
+  console.log(`🧪 Simulator connected to MQTT broker at ${BROKER_URL}`);
   console.log(`   Publishing for ${NODES.length} nodes every ${INTERVAL_MS}ms`);
+  console.log(`   Topic: sensor/data`);
   console.log(`   Nodes: ${NODES.map(n => n.id).join(', ')}`);
   console.log('   Press Ctrl+C to stop\n');
 
   setInterval(() => {
     for (const node of NODES) {
       const reading = generateReading(node.id);
-      const topic = `${TOPIC_PREFIX}/${node.id}/data`;
 
-      client.publish(topic, JSON.stringify(reading), { qos: 1 }, (err) => {
+      client.publish('sensor/data', JSON.stringify(reading), { qos: 1 }, (err) => {
         if (err) {
           console.error(`Publish error for ${node.id}: ${err.message}`);
         } else {
           const sp = nodeState[node.id].spoilageProgress;
           console.log(
-            `[${new Date().toLocaleTimeString()}] ${node.id} → T:${reading.temperature}°C H:${reading.humidity}% CO2:${reading.co2_ppm}ppm ETH:${reading.ethylene_ppm}ppm (spoilage: ${Math.round(sp * 100)}%)`
+            `[${new Date().toLocaleTimeString()}] ${node.id} → T:${reading.dht_temp}°C H:${reading.dht_hum}% CO2:${reading.co2}ppm air:${reading.air_alert} eth:${reading.ethanol_alert} (spoilage: ${Math.round(sp * 100)}%)`
           );
         }
       });

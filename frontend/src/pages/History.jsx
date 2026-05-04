@@ -17,7 +17,6 @@ const METRICS = [
   { key: 'temperature', label: 'Temperature (°C)', color: '#F97316' },
   { key: 'humidity', label: 'Humidity (%)', color: '#3B82F6' },
   { key: 'co2_ppm', label: 'CO₂ (ppm)', color: '#8B5CF6' },
-  { key: 'ethylene_ppm', label: 'Ethylene (ppm)', color: '#10B981' },
   { key: 'spoilage_score', label: 'Spoilage Score', color: '#EF4444' },
 ];
 
@@ -198,7 +197,8 @@ const History = () => {
                   <th>Temp (°C)</th>
                   <th>Humidity (%)</th>
                   <th>CO₂ (ppm)</th>
-                  <th>Ethylene (ppm)</th>
+                  <th>Air Alert</th>
+                  <th>Ethanol Alert</th>
                   <th>Score</th>
                   <th>Anomaly</th>
                 </tr>
@@ -210,7 +210,8 @@ const History = () => {
                     <td>{row.temperature?.toFixed(1)}</td>
                     <td>{row.humidity?.toFixed(1)}</td>
                     <td>{row.co2_ppm?.toFixed(0)}</td>
-                    <td>{row.ethylene_ppm?.toFixed(2)}</td>
+                    <td>{row.air_alert ? '⚠' : '✓'}</td>
+                    <td>{row.ethanol_alert ? '⚠' : '✓'}</td>
                     <td>{row.spoilage_score?.toFixed(3) ?? '-'}</td>
                     <td>
                       <span className={`anomaly-badge ${row.anomaly_flag ? 'anomaly' : 'normal'}`}>

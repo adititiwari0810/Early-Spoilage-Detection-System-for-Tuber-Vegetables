@@ -1,74 +1,66 @@
 /*
  * ============================================================================
- *  Potato Spoilage Detection — SIMULATOR (No Sensors Required)
+ *  Early Spoilage Detection — SIMULATOR (No Sensors Required)
  * ============================================================================
- *  Board   : ESP32 DevKit V1  (Arduino IDE 2.3.8)
+ *  Board   : ESP8266 NodeMCU  (or ESP32 — both work)
  *
  *  This sketch generates realistic simulated sensor data and publishes it
- *  via MQTT. Use this to test the full pipeline (MQTT → Backend → Dashboard)
+ *  via MQTT in the EXACT same JSON format as the real hardware sketch.
+ *  Use this to test the full pipeline (MQTT → Backend → Dashboard)
  *  without needing physical sensors.
  *
- *  The simulator models a potato storage room that gradually deteriorates:
+ *  The simulator models a storage room that gradually deteriorates:
  *    - Temperature slowly rises
  *    - Humidity increases
- *    - CO₂ and ethylene build up over time
- *    - Random noise is added for realism
- *    - Occasional anomaly spikes simulate sudden spoilage events
+ *    - CO₂ builds up over time (MG811 style)
+ *    - MQ-135 and MQ-3 digital alerts trigger at thresholds
+ *
+ *  MQTT Topic : sensor/data
+ *  Payload    : matches real hardware exactly
  *
  * ============================================================================
  *  REQUIRED LIBRARIES:
- *    1. WiFi              (built-in with ESP32)
+ *    1. ESP8266WiFi (built-in) or WiFi (ESP32 built-in)
  *    2. PubSubClient       by Nick O'Leary
- *    3. ArduinoJson        by Benoit Blanchon
  * ============================================================================
  */
 
-#include <WiFi.h>
+#include <ESP8266WiFi.h>
 #include <PubSubClient.h>
-#include <ArduinoJson.h>
-#include <time.h>
 #include <math.h>
 
 // ─────────────────────────── USER CONFIGURATION ─────────────────
-const char* WIFI_SSID     = "YOUR_WIFI_SSID";
-const char* WIFI_PASSWORD = "YOUR_WIFI_PASSWORD";
-const char* MQTT_BROKER   = "192.168.1.100";
-const int   MQTT_PORT     = 1883;
-const char* NODE_ID       = "node_sim";    // Simulated node ID
+const char* ssid        = "moto g45 5G_6614";
+const char* password    = "Abhay151";
+const char* mqtt_server = "10.73.26.253";
+const char* DEVICE_ID   = "esp8266_sim";
 
-// Publishing interval
-const unsigned long READ_INTERVAL_MS = 5000;  // 5 seconds (faster for testing)
-
-// NTP
-const char* NTP_SERVER = "pool.ntp.org";
-const long  GMT_OFFSET = 19800;  // IST
-const int   DST_OFFSET = 0;
+// Publishing interval (500ms matches real hardware)
+const unsigned long PUBLISH_INTERVAL_MS = 500;
 
 // ─────────────────────────── Simulation Parameters ──────────────
 
-// Baseline values (fresh potatoes, well-ventilated cold storage)
-const float BASE_TEMP       = 8.0;    // °C  (ideal: 7-10°C)
-const float BASE_HUMIDITY   = 85.0;   // %   (ideal: 85-90%)
-const float BASE_CO2        = 450.0;  // ppm (near ambient)
-const float BASE_ETHYLENE   = 0.5;    // ppm (minimal)
-const int   BASE_GAS_RAW    = 200;    // ADC
+// Baseline values (fresh produce, well-ventilated storage)
+const float BASE_TEMP       = 25.0;   // °C
+const float BASE_HUMIDITY   = 40.0;   // %
+const float BASE_CO2        = 500.0;  // ppm (MG811 calibrated)
 
 // Drift rates (per hour — how fast environment degrades)
-const float TEMP_DRIFT_PER_HR     = 0.3;   // °C/hour rise
-const float HUMIDITY_DRIFT_PER_HR = 0.2;   // %/hour rise
-const float CO2_DRIFT_PER_HR      = 50.0;  // ppm/hour rise
-const float ETH_DRIFT_PER_HR      = 0.4;   // ppm/hour rise
-const float GAS_DRIFT_PER_HR      = 15.0;  // ADC/hour rise
+const float TEMP_DRIFT_PER_HR     = 0.5;   // °C/hour rise
+const float HUMIDITY_DRIFT_PER_HR = 0.3;   // %/hour rise
+const float CO2_DRIFT_PER_HR      = 80.0;  // ppm/hour rise
 
 // Noise amplitude (random variation)
-const float TEMP_NOISE     = 0.5;
+const float TEMP_NOISE     = 0.3;
 const float HUMIDITY_NOISE = 1.0;
-const float CO2_NOISE      = 30.0;
-const float ETH_NOISE      = 0.3;
-const int   GAS_NOISE      = 50;
+const float CO2_NOISE      = 20.0;
+
+// Digital alert thresholds (simulated MQ sensor trigger points)
+const float AIR_ALERT_CO2_THRESHOLD    = 1200.0;  // CO₂ ppm above which MQ-135 would trigger
+const float ETHANOL_ALERT_TEMP_THRESHOLD = 32.0;  // Temp above which ethanol off-gassing starts
 
 // Anomaly probability (per reading)
-const float ANOMALY_PROBABILITY = 0.03;  // 3% chance per reading
+const float ANOMALY_PROBABILITY = 0.02;  // 2% chance per reading
 
 // ─────────────────────────── Simulation Modes ───────────────────
 enum SimMode {
@@ -82,14 +74,11 @@ SimMode currentMode = MODE_GRADUAL_DECAY;
 
 // ─────────────────────────── Global Objects ─────────────────────
 WiFiClient   espClient;
-PubSubClient mqttClient(espClient);
+PubSubClient client(espClient);
 
-unsigned long lastReadTime  = 0;
-unsigned long startTime     = 0;
-unsigned long readingCount  = 0;
-char          mqttTopic[64];
-
-#define LED_PIN 2
+unsigned long lastPublishTime = 0;
+unsigned long startTime       = 0;
+unsigned long readingCount    = 0;
 
 // =====================================================================
 //                          SETUP
@@ -99,47 +88,49 @@ void setup() {
   delay(500);
 
   Serial.println();
-  Serial.println("╔══════════════════════════════════════════════╗");
-  Serial.println("║   Potato Spoilage — SIMULATOR Node          ║");
-  Serial.println("╚══════════════════════════════════════════════╝");
-  Serial.printf("  Node ID : %s\n", NODE_ID);
+  Serial.println("========================================");
+  Serial.println("  Spoilage Detection — SIMULATOR");
+  Serial.println("========================================");
+  Serial.printf("  Device  : %s\n", DEVICE_ID);
   Serial.printf("  Mode    : %s\n", getModeName());
   Serial.println();
 
-  pinMode(LED_PIN, OUTPUT);
-
-  snprintf(mqttTopic, sizeof(mqttTopic), "potato/node/%s/data", NODE_ID);
-  Serial.printf("[MQTT] Topic: %s\n", mqttTopic);
-
   // Connect Wi-Fi
-  connectWiFi();
+  Serial.printf("[WiFi] Connecting to %s ", ssid);
+  WiFi.begin(ssid, password);
+  int attempts = 0;
+  while (WiFi.status() != WL_CONNECTED && attempts < 40) {
+    delay(500);
+    Serial.print(".");
+    attempts++;
+  }
 
-  // Sync time
-  configTime(GMT_OFFSET, DST_OFFSET, NTP_SERVER);
-  waitForNTP();
+  if (WiFi.status() == WL_CONNECTED) {
+    Serial.println("\n[WiFi] Connected!");
+  } else {
+    Serial.println("\n[WiFi] Failed! Restarting...");
+    ESP.restart();
+  }
 
   // Configure MQTT
-  mqttClient.setServer(MQTT_BROKER, MQTT_PORT);
-  mqttClient.setBufferSize(512);
+  client.setServer(mqtt_server, 1883);
 
   startTime = millis();
-
-  Serial.println();
   Serial.println("[READY] Simulator running...");
-  Serial.println("─────────────────────────────────────────────");
+  Serial.println("----------------------------------------");
 }
 
 // =====================================================================
 //                          LOOP
 // =====================================================================
 void loop() {
-  if (!mqttClient.connected()) {
-    reconnectMQTT();
+  if (!client.connected()) {
+    reconnect();
   }
-  mqttClient.loop();
+  client.loop();
 
-  if (millis() - lastReadTime >= READ_INTERVAL_MS) {
-    lastReadTime = millis();
+  if (millis() - lastPublishTime >= PUBLISH_INTERVAL_MS) {
+    lastPublishTime = millis();
     simulateAndPublish();
   }
 }
@@ -166,103 +157,89 @@ float hoursElapsed() {
 }
 
 /**
- * Generate simulated sensor values based on current mode and time elapsed.
+ * Generate simulated sensor values and publish in the hardware's JSON format.
  */
 void simulateAndPublish() {
   readingCount++;
   float hours = hoursElapsed();
 
-  float temperature, humidity, co2, ethylene;
-  int   gasRaw;
+  float dhtTemp, dhtHum, co2;
 
   switch (currentMode) {
     case MODE_STABLE_FRESH:
-      // Minimal drift, just noise
-      temperature = BASE_TEMP     + gaussianNoise(TEMP_NOISE * 0.3);
-      humidity    = BASE_HUMIDITY  + gaussianNoise(HUMIDITY_NOISE * 0.3);
-      co2         = BASE_CO2      + gaussianNoise(CO2_NOISE * 0.3);
-      ethylene    = BASE_ETHYLENE + gaussianNoise(ETH_NOISE * 0.3);
-      gasRaw      = BASE_GAS_RAW  + (int)gaussianNoise(GAS_NOISE * 0.3);
+      dhtTemp = BASE_TEMP     + gaussianNoise(TEMP_NOISE * 0.3);
+      dhtHum  = BASE_HUMIDITY + gaussianNoise(HUMIDITY_NOISE * 0.3);
+      co2     = BASE_CO2      + gaussianNoise(CO2_NOISE * 0.3);
       break;
 
     case MODE_RAPID_SPOILAGE:
-      // 10x faster degradation — useful for demos
-      temperature = BASE_TEMP     + (TEMP_DRIFT_PER_HR * 10.0 * hours)   + gaussianNoise(TEMP_NOISE);
-      humidity    = BASE_HUMIDITY  + (HUMIDITY_DRIFT_PER_HR * 10.0 * hours) + gaussianNoise(HUMIDITY_NOISE);
-      co2         = BASE_CO2      + (CO2_DRIFT_PER_HR * 10.0 * hours)    + gaussianNoise(CO2_NOISE);
-      ethylene    = BASE_ETHYLENE + (ETH_DRIFT_PER_HR * 10.0 * hours)    + gaussianNoise(ETH_NOISE);
-      gasRaw      = BASE_GAS_RAW  + (int)(GAS_DRIFT_PER_HR * 10.0 * hours) + (int)gaussianNoise(GAS_NOISE);
+      dhtTemp = BASE_TEMP     + (TEMP_DRIFT_PER_HR * 10.0 * hours)     + gaussianNoise(TEMP_NOISE);
+      dhtHum  = BASE_HUMIDITY + (HUMIDITY_DRIFT_PER_HR * 10.0 * hours)  + gaussianNoise(HUMIDITY_NOISE);
+      co2     = BASE_CO2      + (CO2_DRIFT_PER_HR * 10.0 * hours)      + gaussianNoise(CO2_NOISE);
       break;
 
     case MODE_GRADUAL_DECAY:
     default:
-      // Realistic slow decay
-      temperature = BASE_TEMP     + (TEMP_DRIFT_PER_HR * hours)     + gaussianNoise(TEMP_NOISE);
-      humidity    = BASE_HUMIDITY  + (HUMIDITY_DRIFT_PER_HR * hours)  + gaussianNoise(HUMIDITY_NOISE);
-      co2         = BASE_CO2      + (CO2_DRIFT_PER_HR * hours)      + gaussianNoise(CO2_NOISE);
-      ethylene    = BASE_ETHYLENE + (ETH_DRIFT_PER_HR * hours)      + gaussianNoise(ETH_NOISE);
-      gasRaw      = BASE_GAS_RAW  + (int)(GAS_DRIFT_PER_HR * hours) + (int)gaussianNoise(GAS_NOISE);
+      dhtTemp = BASE_TEMP     + (TEMP_DRIFT_PER_HR * hours)     + gaussianNoise(TEMP_NOISE);
+      dhtHum  = BASE_HUMIDITY + (HUMIDITY_DRIFT_PER_HR * hours)  + gaussianNoise(HUMIDITY_NOISE);
+      co2     = BASE_CO2      + (CO2_DRIFT_PER_HR * hours)      + gaussianNoise(CO2_NOISE);
       break;
   }
 
   // ─── Inject Random Anomaly ───
   bool isAnomaly = (random(0, 10000) / 10000.0) < ANOMALY_PROBABILITY;
   if (isAnomaly) {
-    // Spike one random metric
-    int metric = random(0, 4);
+    int metric = random(0, 3);
     switch (metric) {
-      case 0: temperature += 12.0 + gaussianNoise(3.0); break;  // Sudden temp spike
-      case 1: humidity    += 10.0 + gaussianNoise(2.0); break;  // Humidity surge
-      case 2: co2         += 1500 + gaussianNoise(300); break;  // CO₂ burst
-      case 3: ethylene    += 8.0  + gaussianNoise(2.0); break;  // Ethylene spike
+      case 0: dhtTemp += 10.0 + gaussianNoise(2.0); break;
+      case 1: dhtHum  += 15.0 + gaussianNoise(3.0); break;
+      case 2: co2     += 1500 + gaussianNoise(200);  break;
     }
-    Serial.println("⚡ ANOMALY INJECTED!");
+    Serial.println(">>> ANOMALY INJECTED!");
   }
 
   // ─── Clamp to Valid Ranges ───
-  temperature = constrain(temperature, -50.0, 80.0);
-  humidity    = constrain(humidity,      0.0, 100.0);
-  co2         = constrain(co2,           0.0, 50000.0);
-  ethylene    = constrain(ethylene,      0.0, 1000.0);
-  gasRaw      = constrain(gasRaw,        0,   10000);
+  dhtTemp = constrain(dhtTemp, -10.0, 60.0);
+  dhtHum  = constrain(dhtHum,   0.0, 100.0);
+  co2     = constrain(co2,    400.0, 5000.0);
 
-  // ─── Timestamp ───
-  unsigned long timestamp = getUnixTimestamp();
+  // ─── Compute derived values (matching real hardware) ───
+  float ambientTempEst = dhtTemp - 0.4;
+  float ambientHumEst  = dhtHum + 3.0;
+
+  // Simulate digital alerts (MQ-135 and MQ-3 trigger at thresholds)
+  int airAlert     = (co2 > AIR_ALERT_CO2_THRESHOLD) ? 1 : 0;
+  int ethanolAlert = (dhtTemp > ETHANOL_ALERT_TEMP_THRESHOLD) ? 1 : 0;
 
   // ─── Print ───
-  Serial.printf("[#%lu | %.1fh] T:%.1f°C  H:%.1f%%  CO₂:%d  C₂H₄:%.2f  Gas:%d %s\n",
+  Serial.printf("[#%lu | %.1fh] T:%.1f H:%.0f CO2:%d air:%d eth:%d %s\n",
     readingCount, hours,
-    temperature, humidity, (int)co2, ethylene, gasRaw,
-    isAnomaly ? "⚡" : ""
+    dhtTemp, dhtHum, (int)co2, airAlert, ethanolAlert,
+    isAnomaly ? ">>>" : ""
   );
 
-  // ─── Build JSON ───
-  JsonDocument doc;
-  doc["node_id"]       = NODE_ID;
-  doc["timestamp"]     = timestamp;
-  doc["temperature"]   = round(temperature * 10.0) / 10.0;
-  doc["humidity"]      = round(humidity * 10.0) / 10.0;
-  doc["co2_ppm"]       = (int)co2;
-  doc["ethylene_ppm"]  = round(ethylene * 100.0) / 100.0;
-  doc["gas_raw"]       = gasRaw;
-
-  char payload[256];
-  size_t len = serializeJson(doc, payload, sizeof(payload));
+  // ─── Build JSON (same format as real hardware) ───
+  String payload = "{";
+  payload += "\"device\":\"" + String(DEVICE_ID) + "\",";
+  payload += "\"dht_temp\":" + String(dhtTemp, 1) + ",";
+  payload += "\"dht_hum\":" + String(dhtHum, 0) + ",";
+  payload += "\"ambient_temp_est\":" + String(ambientTempEst, 1) + ",";
+  payload += "\"ambient_hum_est\":" + String(ambientHumEst, 1) + ",";
+  payload += "\"co2\":" + String((int)co2) + ",";
+  payload += "\"air_alert\":" + String(airAlert) + ",";
+  payload += "\"ethanol_alert\":" + String(ethanolAlert);
+  payload += "}";
 
   // ─── Publish ───
-  if (mqttClient.connected()) {
-    bool ok = mqttClient.publish(mqttTopic, payload, false);
+  if (client.connected()) {
+    bool ok = client.publish("sensor/data", payload.c_str());
     if (ok) {
-      Serial.printf("[MQTT] ✔ Published → %s\n", mqttTopic);
-      // Quick blink on publish
-      digitalWrite(LED_PIN, HIGH);
-      delay(50);
-      digitalWrite(LED_PIN, LOW);
+      Serial.println("[MQTT] Published OK");
     } else {
-      Serial.println("[MQTT] ✘ Publish failed");
+      Serial.println("[MQTT] Publish failed");
     }
   } else {
-    Serial.println("[MQTT] ✘ Not connected");
+    Serial.println("[MQTT] Not connected");
   }
 }
 
@@ -279,58 +256,16 @@ const char* getModeName() {
   }
 }
 
-unsigned long getUnixTimestamp() {
-  time_t now;
-  time(&now);
-  if (now < 1000000000) return millis() / 1000;
-  return (unsigned long)now;
-}
-
-void connectWiFi() {
-  Serial.printf("[WiFi] Connecting to %s ", WIFI_SSID);
-  WiFi.mode(WIFI_STA);
-  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
-  int attempts = 0;
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-    if (++attempts > 40) {
-      Serial.println("\n[WiFi] ✘ Failed. Restarting...");
-      ESP.restart();
-    }
-  }
-  Serial.printf("\n[WiFi] ✔ Connected! IP: %s  RSSI: %d dBm\n",
-    WiFi.localIP().toString().c_str(), WiFi.RSSI());
-}
-
-void waitForNTP() {
-  Serial.print("[NTP]  Syncing");
-  struct tm t;
+void reconnect() {
   int retries = 0;
-  while (!getLocalTime(&t) && retries < 10) {
-    Serial.print(".");
-    delay(1000);
-    retries++;
-  }
-  if (retries < 10) {
-    char buf[64];
-    strftime(buf, sizeof(buf), "%Y-%m-%d %H:%M:%S", &t);
-    Serial.printf("\n[NTP]  ✔ %s\n", buf);
-  } else {
-    Serial.println("\n[NTP]  ⚠ Failed, using millis()");
-  }
-}
-
-void reconnectMQTT() {
-  int retries = 0;
-  while (!mqttClient.connected() && retries < 5) {
-    Serial.printf("[MQTT] Connecting to %s:%d ... ", MQTT_BROKER, MQTT_PORT);
-    String cid = "sim_" + String(NODE_ID) + "_" + String(random(0xffff), HEX);
-    if (mqttClient.connect(cid.c_str())) {
-      Serial.println("✔ Connected!");
+  while (!client.connected() && retries < 5) {
+    Serial.printf("[MQTT] Connecting to %s ... ", mqtt_server);
+    String cid = "sim_" + String(DEVICE_ID) + "_" + String(random(0xffff), HEX);
+    if (client.connect(cid.c_str())) {
+      Serial.println("Connected!");
     } else {
-      Serial.printf("✘ rc=%d, retrying...\n", mqttClient.state());
-      delay(5000);
+      Serial.printf("Failed rc=%d, retrying...\n", client.state());
+      delay(2000);
       retries++;
     }
   }
